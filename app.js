@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hpButton = document.getElementById("hpbutton");
     hpButton.addEventListener("click", () => {
         if (storedHero.money - storedPrice.hp > 0) {
-            buyItem("hp", storedPrice.hp, 100, 1.05);
+            buyItem("hp", storedPrice.hp, 100, 1.1);
             updateTotalGold(storedHero.money);
             updateHeroStat("stathp", storedHero.hp);
             updatePrice("hp", storedPrice.hp);
@@ -244,11 +244,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const asButton = document.getElementById("asbutton");
     asButton.addEventListener("click", () => {
-        if (storedHero.money - storedPrice.as > 0) {
-            buyItem("as", storedPrice.as, 0.1, 2);
+        if (storedHero.money - storedPrice.as > 0 && storedHero.as < 5) {
+            buyItem("as", storedPrice.as, 1, 20);
             updateTotalGold(storedHero.money);
             updateHeroStat("statas", storedHero.as);
             updatePrice("as", storedPrice.as);
+            if (storedHero.as === 5) {
+                asButton.textContent = "MAX";
+                statMaxed("as");
+                updatePrice("as", storedPrice.as);
+            }
         }
     });
 
