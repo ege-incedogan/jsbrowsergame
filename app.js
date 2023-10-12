@@ -131,8 +131,16 @@ function updatePrice(id, value) {
 
 function updateBattleHP(value, id) {
     const battleHP = document.getElementById(id);
-    battleHP.textContent = value.toFixed(0);
+    const numericValue = parseFloat(value);
+    
+    if (!isNaN(numericValue)) {
+        const roundedValue = numericValue.toFixed(0);
+        battleHP.textContent = roundedValue;
+    } else {
+        battleHP.textContent = "?";
+    }
 }
+
 
 function updateTotalGold(value) {
     const totalGold = document.getElementById("currentgold");
