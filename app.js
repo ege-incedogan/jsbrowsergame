@@ -141,7 +141,6 @@ function updateBattleHP(value, id) {
     }
 }
 
-
 function updateTotalGold(value) {
     const totalGold = document.getElementById("currentgold");
     totalGold.textContent = value;
