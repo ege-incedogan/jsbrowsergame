@@ -7,7 +7,7 @@ const hero = {
     cr: 10,
     cd: 150,
     dodge: 0,
-    money: 9999999999,
+    money: 0,
     crupgrade: 0,
     defupgrade: 0,
     dodgeupgrade: 0,
