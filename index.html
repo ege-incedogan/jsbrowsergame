@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+    <title>Blindo's - ARPG</title>
+</head>
+
+<body>
+    <p id="screensizewarning">This game is only for screens wider than 1024px.(For now)</p>
+    <div class="container">
+        <section id="statshopwindow" class="shop">
+            <div class="shopstats" id="money">
+                <div class="statname">Gold</div>
+                <div id="currentgold">error</div>
+            </div>
+            <div class="shopstats" id="hp">
+                <div>
+                    <div class="statname">HP</div>
+                    <div id="stathp" class="statnumber">error</div>
+                </div>
+                <button class="upbutton" id="hpbutton">
+                    <p id="hpprice">error</p>
+                </button>
+            </div>
+            <div class="shopstats" id="str">
+                <div>
+                    <div class="statname">Attack</div>
+                    <div id="statstr" class="statnumber">error</div>
+                </div>
+                <button class="upbutton" id="strbutton">
+                    <p id="strprice"></p>
+                </button>
+            </div>
+            <div class="shopstats" id="def">
+                <div>
+                    <div class="statname">Dmg.Reduction</div>
+                    <div class="statnumber">
+                        <div id="statdef">error</div>
+                        <p>%</p>
+                    </div>
+                </div>
+                <button class="upbutton" id="defbutton">
+                    <p id="defprice"></p>
+                </button>
+            </div>
+            <div class="shopstats" id="as">
+                <div>
+                    <div class="statname">Attack Speed</div>
+                    <div class="statnumber">
+                        <div id="statas">error</div>
+                        <p>/per turn</p>
+                    </div>
+                </div>
+                <button class="upbutton" id="asbutton">
+                    <p id="asprice"></p>
+                </button>
+            </div>
+            <div class="shopstats" id="ls">
+                <div>
+                    <div class="statname">Lifesteal</div>
+                    <div class="statnumber">
+                        <div id="statls">error</div>
+                        <p>%</p>
+                    </div>
+                </div>
+                <button class="upbutton" id="lsbutton">
+                    <p id="lsprice"></p>
+                </button>
+            </div>
+            <div class="shopstats" id="cr">
+                <div>
+                    <div class="statname">Crit Rate</div>
+                    <div class="statnumber">
+                        <div id="statcr">error</div>
+                        <p>%</p>
+                    </div>
+                </div>
+                <button class="upbutton" id="crbutton">
+                    <p id="crprice"></p>
+                </button>
+            </div>
+            <div class="shopstats" id="cd">
+                <div>
+                    <div class="statname">Crit Damage</div>
+                    <div class="statnumber">
+                        <div id="statcd">error</div>
+                        <p>%</p>
+                    </div>
+                </div>
+                <button class="upbutton" id="cdbutton">
+                    <p id="cdprice"></p>
+                </button>
+            </div>
+            <div class="shopstats" id="dr">
+                <div>
+                    <div class="statname">Dodge Chance</div>
+                    <div class="statnumber">
+                        <div id="statdodge">error</div>
+                        <p>%</p>
+                    </div>
+                </div>
+                <button class="upbutton" id="dodgebutton">
+                    <p id="dodgeprice"></p>
+                </button>
+            </div>
+        </section>
+        <div id="overlay1"></div>
+        <section class="mylinks">
+            <a id="portfolio" target="_blank" href="https://blindo97.github.io/portfolio/#/">click here to view my
+                portfolio &#9993;</a>
+        </section>
+        <section class="battlearea">
+
+            <div class="player">
+                <div id="playerhealth">?</div>
+                <div id="playerbody">error loading the image</div>
+            </div>
+            <div class="enemy">
+                <div id="enemyhealth">?</div>
+                <div id="enemybody">no enemy image</div>
+            </div>
+        </section>
+        <div id="overlay2"></div>
+        <section class="enemyandlogs">
+            <button id="resetdata">RESET DATA</button>
+            <div id="pickenemy">
+                <div>PICK AN ENEMY</div>
+                <div class="vertical-menu">
+                    <a id="level1" href="#">Level 1</a>
+                    <a id="level5" href="#">Level 5</a>
+                    <a id="level15" href="#">Level 15</a>
+                    <a id="firstboss" href="#">First boss</a>
+                    <a id="level30" href="#">Level 30</a>
+                    <a id="level40" href="#">Level 40</a>
+                    <a id="level50" href="#">Level 50</a>
+                    <a id="secondboss" href="#">Second boss</a>
+                </div>
+                <div id="battlespeed-container" class="switch-toggle switch-3 switch-candy">
+                    <p id="speedtext">Battle Speed</p>
+                    <input id="1x" name="battlespeed" type="radio" value="1x" checked="" />
+                    <label for="1x" onclick="">1x</label>
+                    <input id="2x" name="battlespeed" type="radio" value="2x" />
+                    <label for="2x" onclick="">2x</label>
+                    <input id="10x" name="battlespeed" type="radio" value="10x" />
+                    <label for="10x" onclick="">10x</label>
+                </div>
+            </div>
+            <div id="logwindow"></div>
+        </section>
+    </div>
+</body>
+
+</html>
