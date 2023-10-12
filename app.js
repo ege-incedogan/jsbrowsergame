@@ -81,6 +81,14 @@ const enemies = {
         gold: 100001,
         mingold: 150000,
     },
+    level60: {
+        name: "Level 60",
+        hp: 75000,
+        str: 700,
+        as: 4,
+        gold: 200001,
+        mingold: 300000,
+    },
     secondboss: {
         name: "Second Boss",
         hp: 100000,
@@ -144,11 +152,17 @@ function resetData() {
     location.reload();
 }
 
+function scrollToBottom() {
+    var logWindow = document.getElementById("logwindow");
+    logWindow.scrollTop = logWindow.scrollHeight;
+}
+
 function appendMessage(message) {
     const messageBox = document.getElementById('logwindow');
     const newMessage = document.createElement('p');
     newMessage.textContent = message;
     messageBox.appendChild(newMessage);
+    scrollToBottom();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -412,7 +426,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("overlay2").style.display = "none";
         }
     }
-    
 
     
     document.getElementById("level1").addEventListener("click", () => startBattle("level1"));
@@ -422,6 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("level30").addEventListener("click", () => startBattle("level30"));
     document.getElementById("level40").addEventListener("click", () => startBattle("level40"));
     document.getElementById("level50").addEventListener("click", () => startBattle("level50"));
+    document.getElementById("level60").addEventListener("click", () => startBattle("level60"));
     document.getElementById("secondboss").addEventListener("click", () => startBattle("secondboss"));
 
 
