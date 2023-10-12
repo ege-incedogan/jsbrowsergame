@@ -103,12 +103,6 @@ if (!storedPrice) {
     localStorage.setItem('priceData', JSON.stringify(storedPrice));
 }
 
-let storedHelmets = JSON.parse(localStorage.getItem('helmetData'));
-if (!storedHelmets) {
-    storedHelmets = helmets;
-    localStorage.setItem('helmetData', JSON.stringify(storedHelmets));
-}
-
 function updateHeroStat(id, value) {
     const statElement = document.getElementById(id);
     statElement.textContent = value;
