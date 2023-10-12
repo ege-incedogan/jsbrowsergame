@@ -123,7 +123,7 @@ function updatePrice(id, value) {
 
 function updateBattleHP(value, id) {
     const battleHP = document.getElementById(id);
-    battleHP.textContent = value;
+    battleHP.textContent = value.toFixed(0);
 }
 
 function updateTotalGold(value) {
