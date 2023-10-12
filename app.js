@@ -97,6 +97,14 @@ const enemies = {
         gold: 500001,
         mingold: 500000,
     },
+    level80: {
+        name: "Level 80",
+        hp: 120000,
+        str: 800,
+        as: 6,
+        gold: 600001,
+        mingold: 700000,
+    }
 }
 
 let storedHero = JSON.parse(localStorage.getItem('heroData'));
@@ -428,6 +436,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("level50").addEventListener("click", () => startBattle("level50"));
     document.getElementById("level60").addEventListener("click", () => startBattle("level60"));
     document.getElementById("secondboss").addEventListener("click", () => startBattle("secondboss"));
-
+    document.getElementById("level80").addEventListener("click", () => startBattle("level80"));
 
 });
