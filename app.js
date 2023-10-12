@@ -298,23 +298,23 @@ document.addEventListener("DOMContentLoaded", () => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    let BattleSpeed = 500;
+    let BattleSpeed = 250;
     function updateBattleSpeed() {
         const selectedRadioButton = document.querySelector('input[name="battlespeed"]:checked');
         if (selectedRadioButton) {
           const selectedValue = selectedRadioButton.value;
           switch (selectedValue) {
             case "1x":
-              BattleSpeed = 500;
-              break;
-            case "2x":
               BattleSpeed = 250;
               break;
+            case "2x":
+              BattleSpeed = 125;
+              break;
             case "10x":
-              BattleSpeed = 50;
+              BattleSpeed = 25;
               break;
             default:
-              BattleSpeed = 500;
+              BattleSpeed = 250;
           }
         }
       };
@@ -361,38 +361,31 @@ document.addEventListener("DOMContentLoaded", () => {
                         await delay(BattleSpeed);
                         const lifestealAmount = ((storedHero.str / 100) * storedHero.ls) * critAmount;
                         currentHealth += lifestealAmount;
-    
                         if (currentHealth > storedHero.hp) {
                             currentHealth = storedHero.hp;
                         }
-    
                         enemyHealth -= (storedHero.str) * critAmount;
                         enemyPercentage = (enemyHealth / enemyMaxHealth) * 100;
                         updateEnemyHealthBar();
                         updateBattleHP(enemyHealth, "enemyhealth");
-                        console.log("Enemy health: " + enemyHealth);
                         await delay(10);
                     } else {
                         await delay(BattleSpeed);
                         const lifestealAmount = (storedHero.str / 100) * storedHero.ls;
                         currentHealth += lifestealAmount;
-    
                         if (currentHealth > storedHero.hp) {
                             currentHealth = storedHero.hp;
                         }
-
                         enemyHealth -= storedHero.str;
                         enemyPercentage = (enemyHealth / enemyMaxHealth) * 100;
                         updateEnemyHealthBar();
                         updateBattleHP(enemyHealth, "enemyhealth");
-                        console.log("Enemy health: " + enemyHealth);
                         await delay(10);
                     }
                 }
     
                 for (let i = 0; i < enemy.as; i++) {
                     if (storedHero.dodge >= Math.floor(Math.random() * 101)) {
-                        console.log("You dodged the attack!");
                     } else {
                         await delay(BattleSpeed);
                         let reduction = (enemy.str / 100) * storedHero.dodge;
@@ -400,7 +393,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         heroPercentage = (currentHealth / heroMaxHealth) * 100;
                         updateHeroHealthBar();
                         updateBattleHP(currentHealth, "playerhealth");
-                        console.log("Your health: " + currentHealth);
                     }
                     await delay(10);
                 }
@@ -426,7 +418,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("overlay2").style.display = "none";
         }
     }
-
     
     document.getElementById("level1").addEventListener("click", () => startBattle("level1"));
     document.getElementById("level5").addEventListener("click", () => startBattle("level5"));
