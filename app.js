@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const strButton = document.getElementById("strbutton");
     strButton.addEventListener("click", () => {
         if (storedHero.money - storedPrice.str > 0) {
-            buyItem("str", storedPrice.str, 10, 1.3);
+            buyItem("str", storedPrice.str, 20, 1.2);
             updateTotalGold(storedHero.money);
             updateHeroStat("statstr", storedHero.str);
             updatePrice("str", storedPrice.str);
