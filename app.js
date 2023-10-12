@@ -163,7 +163,6 @@ function statMaxed(item) {
 function resetData() {
     localStorage.setItem('heroData', JSON.stringify(hero));
     localStorage.setItem('priceData', JSON.stringify(prices));
-    localStorage.setItem('helmetData', JSON.stringify(helmets));
     location.reload();
 }
 
