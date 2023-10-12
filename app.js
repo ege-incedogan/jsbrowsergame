@@ -7,7 +7,7 @@ const hero = {
     cr: 10,
     cd: 150,
     dodge: 0,
-    money: 0,
+    money: 9999999999,
     crupgrade: 0,
     defupgrade: 0,
     dodgeupgrade: 0,
@@ -199,15 +199,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const defButton = document.getElementById("defbutton");
     defButton.addEventListener("click", () => {
-        if (storedHero.money - storedPrice.def > 0 && storedHero.defupgrade < 10) {
+     if (storedHero.money - storedPrice.def > 0 && storedHero.defupgrade < 10) {
             storedHero.defupgrade += 1;
             buyItem("def", storedPrice.def, 4, 2.5);
             updateTotalGold(storedHero.money);
             updateHeroStat("statdef", storedHero.def);
             updatePrice("def", storedPrice.def);
-        } else {
-            statMaxed("def");
-            updatePrice("def", storedPrice.def);
+            if (storedHero.defupgrade === 10) {
+                defButton.textContent = "MAX";
+                statMaxed("def");
+                updatePrice("def", storedPrice.def);
+            }
         }
     });
 
@@ -228,9 +230,11 @@ document.addEventListener("DOMContentLoaded", () => {
             updateTotalGold(storedHero.money);
             updateHeroStat("statls", storedHero.ls);
             updatePrice("ls", storedPrice.ls);
-        } else {
-            statMaxed("ls");
-            updatePrice("ls", storedPrice.ls);
+            if (storedHero.ls === 40) {
+                lsButton.textContent = "MAX";
+                statMaxed("ls");
+                updatePrice("ls", storedPrice.ls);
+            }
         }
     });
 
@@ -238,13 +242,15 @@ document.addEventListener("DOMContentLoaded", () => {
     crButton.addEventListener("click", () => {
         if (storedHero.money - storedPrice.cr > 0 && storedHero.crupgrade < 45) {
             storedHero.crupgrade += 1;
-            buyItem("cr", storedPrice.cr, 2, 1.5);
+            buyItem("cr", storedPrice.cr, 2, 1.2);
             updateTotalGold(storedHero.money);
             updateHeroStat("statcr", storedHero.cr);
             updatePrice("cr", storedPrice.cr);
-        } else {
-            statMaxed("cr");
-            updatePrice("cr", storedPrice.cr);
+            if (storedHero.crupgrade === 45) {
+                crButton.textContent = "MAX";
+                statMaxed("cr");
+                updatePrice("cr", storedPrice.cr);
+            }
         }
     });
 
@@ -266,9 +272,11 @@ document.addEventListener("DOMContentLoaded", () => {
             updateTotalGold(storedHero.money);
             updateHeroStat("statdodge", storedHero.dodge);
             updatePrice("dodge", storedPrice.dodge);
-        } else {
-            statMaxed("dodge");
-            updatePrice("dodge", storedPrice.dodge);
+            if (storedHero.dodgeupgrade === 10) {
+                drButton.textContent = "MAX";
+                statMaxed("dodge");
+                updatePrice("dodge", storedPrice.dodge);
+            }
         }
     });
 
