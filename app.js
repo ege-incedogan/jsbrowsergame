@@ -1,3 +1,5 @@
+import { enemies } from './enemies.js';
+
 const hero = {
     hp: 1000,
     str: 20,
@@ -24,88 +26,6 @@ const prices = {
     dodge: 100,
 };
 
-const enemies = {
-    level1: {
-        name: "Level 1",
-        hp: 50,
-        str: 10,
-        as: 1,
-        gold: 101,
-        mingold: 100,
-    },
-    level5: {
-        name: "Level 5",
-        hp: 500,
-        str: 100,
-        as: 1,
-        gold: 501,
-        mingold: 500,
-    },
-    level15: {
-        name: "Level 15",
-        hp: 5000,
-        str: 200,
-        as: 1,
-        gold: 5001,
-        mingold: 5000,
-    },
-    firstboss: {
-        name: "First Boss",
-        hp: 10000,
-        str: 350,
-        as: 2,
-        gold: 25001,
-        mingold: 25000,
-    },
-    level30: {
-        name: "Level 30",
-        hp: 15000,
-        str: 400,
-        as: 2,
-        gold: 50001,
-        mingold: 50000,
-    },
-    level40: {
-        name: "Level 40",
-        hp: 25000,
-        str: 400,
-        as: 3,
-        gold: 50001,
-        mingold: 100000,
-    },
-    level50: {
-        name: "Level 50",
-        hp: 40000,
-        str: 500,
-        as: 4,
-        gold: 100001,
-        mingold: 150000,
-    },
-    level60: {
-        name: "Level 60",
-        hp: 75000,
-        str: 700,
-        as: 4,
-        gold: 200001,
-        mingold: 300000,
-    },
-    secondboss: {
-        name: "Second Boss",
-        hp: 100000,
-        str: 700,
-        as: 5,
-        gold: 500001,
-        mingold: 500000,
-    },
-    level80: {
-        name: "Level 80",
-        hp: 120000,
-        str: 800,
-        as: 6,
-        gold: 600001,
-        mingold: 700000,
-    }
-}
 
 let storedHero = JSON.parse(localStorage.getItem('heroData'));
 if (!storedHero) {
@@ -437,16 +357,22 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("overlay2").style.display = "none";
         }
     }
+
+    const enemyContainer = document.querySelector(".vertical-menu");
     
-    document.getElementById("level1").addEventListener("click", () => startBattle("level1"));
-    document.getElementById("level5").addEventListener("click", () => startBattle("level5"));
-    document.getElementById("level15").addEventListener("click", () => startBattle("level15"));
-    document.getElementById("firstboss").addEventListener("click", () => startBattle("firstboss"));
-    document.getElementById("level30").addEventListener("click", () => startBattle("level30"));
-    document.getElementById("level40").addEventListener("click", () => startBattle("level40"));
-    document.getElementById("level50").addEventListener("click", () => startBattle("level50"));
-    document.getElementById("level60").addEventListener("click", () => startBattle("level60"));
-    document.getElementById("secondboss").addEventListener("click", () => startBattle("secondboss"));
-    document.getElementById("level80").addEventListener("click", () => startBattle("level80"));
+    if (enemyContainer) {
+        Object.keys(enemies).forEach(key => {
+            const enemy = enemies[key];
+            const enemyLink = document.createElement("a");
+            enemyLink.id = key;
+            enemyLink.href = "#";
+            enemyLink.textContent = enemy.name;
+            enemyContainer.appendChild(enemyLink);
+
+            document.getElementById(key).addEventListener("click", () => startBattle(key));
+        });
+    } else {
+        console.error("Enemy container not found.");
+    }
 
 });
